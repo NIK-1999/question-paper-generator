@@ -82,7 +82,7 @@
   header.innerHTML = fieldHeader[0].innerHTML;
 
   markForm.addEventListener("submit", function (e) {
-    navigationHandler(3, false, e);
+    navigationHandler(4, false, e);
   });
 
   formParts.forEach(function (element, index) {
@@ -113,8 +113,8 @@
     let err = "";
     if (number === "") {
       err = "Enter Marks in Integers";
-    } else if (Number(number) <= 0) {
-      err = "Marks should be positive";
+    } else if (Number(number) < 0) {
+      err = "Marks should be non-negative";
     } else {
       const indexOfDecimal = number.indexOf(".");
       const indexOfExp = number.indexOf("e");
@@ -154,7 +154,6 @@
           validFields++;
         }
       });
-      console.log(formParts, formParts[index]);
       const status = isValidTotalMarks(formParts[index]);
       if (status) {
         validFields++;

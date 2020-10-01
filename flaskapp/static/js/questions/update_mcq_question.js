@@ -86,7 +86,7 @@
   }
 
   for (let i = 0; i < qids.length; i++) {
-    qids[i].innerText = (pageNo - 1) * qids.length + (i + 1);
+    qids[i].innerText = (pageNo - 1) * 10 + (i + 1);
   }
 
   for (let i = 0; i < imps.length; i++) {
@@ -225,14 +225,7 @@
           body: jsonId,
         })
           .then(() => {
-            for (let i = 0; i < deleteCheckbox.length; i++) {
-              if (!deleteCheckbox[i].checked) {
-                deleteOption[i].style.display = "none";
-              } else {
-                questions[i].parentNode.removeChild(questions[i]);
-                i--;
-              }
-            }
+            window.location.reload();
           })
           .catch((e) => {
             throw new Error(e);
